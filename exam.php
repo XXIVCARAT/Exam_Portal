@@ -12,9 +12,9 @@ include("auth_session.php");
 <body>
     <div class="form">
         <p>Hey, <?php echo $_SESSION['email']; ?>!</p>
-        <p>You are now on Student Dashboard page.</p>
-        <p><a href="exam.php">Give Exam</a></p>
-        <p><a href="logout.php">Logout</a></p>
+        <p>You are now on Exam Page</p>
+        <p><a href="examSelect.php">Select Exam</a></p>
+        <p><a href="dashboard.php">Home</a></p>
     </div>
 </body>
 </html>
