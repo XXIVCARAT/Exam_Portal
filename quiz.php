@@ -16,31 +16,28 @@ include 'db_connection.php';
 $result = mysqli_query($con , "SELECT * FROM que WHERE subject='" .$_GET['id']. "'");
 //Displaying table header on the browser.
 
-echo "<table border='1'>
-<tr>
-<th>Question Number</th>
-<th>Question</th>
-<th>Options</th>
-</tr>";
+
 //Displaying table rows on the browser.
 
 while($row1 = mysqli_fetch_array($result)) {
   echo "<tr>";
   echo "<td>" .$row1['questionNo'] . "</a></td>";
+  echo ". ";
   echo "<td>" . $row1['question'] . "</td>";
   $query = mysqli_query($con , "SELECT * FROM opt WHERE subject='". $_GET['id']. "' AND questionNo='".$row1['questionNo'] ."'");
   while($row2 = mysqli_fetch_array($query))
   {
-    echo "<td>" . $row2['optionNo'] . "</td>";
-    echo "<td>" . $row2['option'] . "</td>";
-  }
+    echo "\n <br>";
+    echo  $row2['optionNo'] ;
+    echo ". ";
+    echo $row2['option'];
+    
   echo "</tr>";
 }
-
+}
 echo "</table>";
 
 
 ?>
    
 </body>
-</html>
