@@ -26,15 +26,14 @@ echo "<table border='1'>
 
 while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
-  echo "<td> <a href='userdetails.php?id=". $row['srno'] ."'>" .$row['srno'] . "</a></td>";
-  echo "<td>" . $row['subject'] . "</td>";
-  echo "<td> <a href='userdetails.php?id=". $row['srno'] ."'> VIEW </a></td>";
+  echo "<td>" .$row['srno'] . "</a></td>";
+  echo "<td> <a href='quiz.php?id=". $row['subject'] ."'>" .$row['subject'] . "</a></td>";
   echo "</tr>";
 }
 
 echo "</table>";
 //Closing Database Connection.
-mysqli_close($con);
+//mysqli_close($con);
 ?>
    
 </body>
