@@ -13,6 +13,7 @@ include("auth_session.php");
     <div class="form">
         <p>Hey, <?php echo $_SESSION['email']; ?>!</p>
         <p>You are now on Admin Dashboard page.</p>
+        <p><a href= "addSubject.php">Set Question Paper</a></p>
         <p><a href="logout.php">Logout</a></p>
     </div>
 </body>
