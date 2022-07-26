@@ -1,4 +1,9 @@
+<?php
+//include auth_session.php file on all user panel pages
+include("auth_session.php");
+include 'db_connection.php';
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,36 +13,21 @@
     <Title>QUIZ</title>
 </head>
 <body>
+<h1 class="login-title">Welcome to <?php echo  $_GET['id']; ?> Quiz </h1>
+
 <?php
-include 'db_connection.php';
-//include 'examSelect.php';
 
-//SQL query for selecting all data from the database.
 $result = mysqli_query($con , "SELECT * FROM que WHERE subject='" .$_GET['id']. "'");
-//Displaying table header on the browser.
+$numberOfQuestions = mysqli_num_rows($result);
+$_SESSION['numberOfQuestions'] = $numberOfQuestions;
+$_SESSION['subject'] = $_GET['id'];
+$currentQuestion = 1;
+?>
 
-
-//Displaying table rows on the browser.
-
-while($row1 = mysqli_fetch_array($result)) {
-  echo "<tr>";
-  echo "<td>" .$row1['questionNo'] . "</a></td>";
-  echo ". ";
-  echo "<td>" . $row1['question'] . "</td>";
-  $query = mysqli_query($con , "SELECT * FROM opt WHERE subject='". $_GET['id']. "' AND questionNo='".$row1['questionNo'] ."'");
-  while($row2 = mysqli_fetch_array($query))
-  {
-    echo "\n <br>";
-    echo  $row2['optionNo'] ;
-    echo ". ";
-    echo $row2['option'];
-    
-  echo "</tr>";
-}
-}
-echo "</table>";
+<a href='test.php?id=<?php echo $currentQuestion ; ?>'>START</a>
+<?php
 
 
 ?>
-   
 </body>
+</html>
