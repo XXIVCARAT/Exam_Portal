@@ -15,6 +15,7 @@ include("auth_session.php");
         <p>You are now on Exam Page</p>
         <p><a href="examSelect.php">Select Exam</a></p>
         <p><a href="dashboard.php">Home</a></p>
+        <?php $_SESSION['enteredOptionByStudent'] = 0; ?>
     </div>
 </body>
 </html>
