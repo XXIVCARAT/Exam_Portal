@@ -14,6 +14,7 @@ include("auth_session.php");
 <?php
 include 'db_connection.php';
 //SQL query for selecting all data from the database.
+
 $result = mysqli_query($con,"SELECT * FROM sub");
 //Displaying table header on the browser.
 
